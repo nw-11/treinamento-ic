@@ -39,11 +39,11 @@ def analisePalavras(df):
     return df
     
 
-def main():
+def data_analisis():
     df = carregaDados()
     df = analisePalavras(df)
     plotaGrafico(df)
-    print("Total de documentos lidos: {df['label'].count()}")
+    print(f"Total de documentos lidos: {df['label'].count()}")
 
-main()
+data_analisis()
 
