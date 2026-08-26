@@ -61,4 +61,4 @@ def testa():
     print(df_processado[['text', 'text_clean']].head())  #mostra 5 exemplos comparando 'text' com 'text_clea'
 
 
-testa()
+#testa()
