@@ -14,9 +14,7 @@ def testa():
     x_tfidf, vetorizador = cria_tfidf(df)
 
     print(f'Formato da matriz gerada: {x_tfidf.shape}')   
-    print(
-        f'Vocabulário total: {len(vetorizador.get_feature_names_out())} palavras'
-    )
+    print(f'Vocabulário total: {len(vetorizador.get_feature_names_out())} palavras')
 
-testa()
+#testa()
      

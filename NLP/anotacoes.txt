@@ -1,0 +1,16 @@
+KNN -> Posiciona as mensagens vetorizadas pelo TF-IDF
+       quando chega uma mensagem nova, ele calcula a distancia dela
+       dos vizinhos mais proximos, se a maioria dos vizinhos for spam,
+       a nova mensagem e classificada como spam.
+
+Decision Tree -> uma arvore de perguntas de sim ou nao, com as palavras mais 
+                 mais informativas ex: a palavra "free" aparece no texto? se sim 
+                 a palavra win aparece? se sim -> spam ; se nao -> ham
+
+SVC -> cria como se fosse uma "rodovia" para separar as classes, com base nas distancias
+       dos dados, se cair do lado direito da rodovia é ham, se cair no esquerda é spam por exemplo.
+       tentando descobrir o que separa elas.
+
+
+
+
