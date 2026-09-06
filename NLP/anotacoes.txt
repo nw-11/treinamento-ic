@@ -14,3 +14,6 @@ SVC -> cria como se fosse uma "rodovia" para separar as classes, com base nas di
 
 
 
+Hiper parametros ->  sao os ajustes padroes que cada modelo tem como o numero de vizinhos no knn ou o nivel da arvore no svc
+
+GridSearchCV(estimator=?, param_grid=?, scoring:?, cv=?, n_jobs=?): #cabecalho da funcao grid search
