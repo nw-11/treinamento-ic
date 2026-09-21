@@ -50,7 +50,7 @@ def hiperparam():
             n_jobs=-1,                          #percorre cada modelo
         )
 
-        grid.fit(X_train, y_train)              #para treinar o modelo no nosso gerenciador de testes(cv = 5; logo sao 40 treinos, porque sao 8 combinacoes, 40x8)
+        grid.fit(X_train, y_train)              #para treinar o modelo no nosso gerenciador de testes(cv = 5; logo sao 40 treinos, porque sao 8 combinacoes, 8x5)
 
         melhores_modelos[nome] = grid.best_estimator_    #guarda no dicionario o modelo final e treinado, com os melhores parametros encontrados
 
