@@ -29,15 +29,18 @@ def model_evaluation():
         
         print(f'{nome} | media: {notas.mean():.4f} | desvio padrao: {notas.std():.4f}')
 
-    print('\n--- COMPARAÇÃO ESTATÍSTICA ---') #Teste t e correcao de bonferroni
+    print('\n--- COMPARAÇÃO ESTATÍSTICA ---')
+    
     pares = [('KNN', 'SVM'), ('KNN', 'Árvore'), ('SVM', 'Árvore')]
     
     limite_padrao = 0.05
+
     limite_bonferroni = limite_padrao/len(pares) # correção de bonferroni para fazer o teste T
     print(f'Nível de significância exigido (Bonferroni): {limite_bonferroni:.4f}\n')
 
     for m1, m2 in pares:
-        # Compara as 10 notas do Modelo 1 com as 10 notas do Modelo 2 e retorna t e p
+        # Compara as 10 notas do Modelo 1 com as 10 notas do Modelo 2 e retorna t(sinal/oscilacao) e p(ruido)
+
         estatistica, p = stats.ttest_rel(notas_dos_modelos[m1], notas_dos_modelos[m2])
         
         # Se o p for menor, pouco ruido, há diferenca real
