@@ -22,3 +22,11 @@ e cada fatia vai ser usada pra teste exatamente uma vez, enquanto todas as outra
 
 
 O Teste T faz a subtracao fold a fold (di = nota1_i - nota2_i) e calcula o desvio padrao dessa nova lista de diferencas
+
+Testando outros representacoes:
+       Ao contrario do tf-idf que quer reduzir o numero de colunas da matriz
+       pra evitar ruido(retirando stopwords) word2vec e fasttext aprendem o significado de uma palavra
+       olhando para as N palavras do lado del, nao podemos retirar stopwors, pois alteraria a distancia
+       real das palavras
+       (so pra nao esquecer de colocar no readme)
+       por isso foi criada duas funcoes de pre processamento

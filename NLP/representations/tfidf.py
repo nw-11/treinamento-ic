@@ -1,5 +1,5 @@
 import pandas as pd
-from pre_proccess import preProccess
+from pre_proccess_tfidf import preProccess
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def cria_tfidf(df):
