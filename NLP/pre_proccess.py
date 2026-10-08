@@ -25,25 +25,36 @@ def remove_accent(text):
     )
 
 
-def clean_text(text, tokenize=False):
+def clean_text(tipo, text, tokenize=False):
     text = remove_accent(text.lower())  #remove os acentos enquanto deixa tudo minusculo
     text = re.sub(r'\d+', 'numtoken', text)  #substitui valores numericos por 'numtoken'
     text = re.sub(r'[^a-z\s]', '', text) #remove caracteres especiais
     text = re.sub(r"\s+", " ", text) #remove espacos desnecessarios
 
-    words = word_tokenize(text)             #diferente da primeira funcao, essa funcao nao reduz as palavras
-                                            #ao radical, e nem retira as stopwords.
+    words = word_tokenize(text)
+
+    if tipo == "tfidf": #se for fasttext ou w2v nao queremos reduzir palavras ao radical, nem tirar stopwords.
+        filtered = []
+        for w in words:  #para cada palavra
+            if w not in stop_words and len(w) > 2:  #testa se é uma stopword  
+                raiz = stemmer.stem(w) #reduz a palavra ao radical
+                filtered.append(raiz)  # guarda
+
+        if tokenize:
+            return filtered
+        return ' '.join(filtered)
 
     if tokenize:
         return words
     return ' '.join(words)
 
-def preProccess():
+def preProccess(tipo = "tfidf"):
     df = carregaDados()
-
+    precisa_tokenizar = (tipo != "tfidf")
     textos_limpos = []
+
     for texto in df['text']:
-        textos_limpos.append(clean_text(texto)) #limpa texto por texto e insere na lista
+        textos_limpos.append(clean_text(tipo, texto, tokenize=precisa_tokenizar)) #limpa texto por texto e insere na lista
     df['text_clean'] = textos_limpos # coluna nova no dataframe com os textos limpos
 
     return df
