@@ -14,9 +14,6 @@ SVC -> cria como se fosse uma "rodovia" para separar as classes, com base nas di
 Hiper parametros ->  sao os ajustes padroes que cada modelo tem, como o numero de vizinhos no knn ou o nivel da arvore no svc
 
 
-GridSearchCV(estimator=?, param_grid=?, scoring:?, cv=?, n_jobs=?): #cabecalho da funcao grid search
-
-
 kfold cross validation -> o k fold cross validation quer quebrar os dados em K fatias
 e cada fatia vai ser usada pra teste exatamente uma vez, enquanto todas as outras sao usadas para treino K vezes
 
@@ -30,3 +27,5 @@ Testando outros representacoes:
        real das palavras
        (so pra nao esquecer de colocar no readme)
        por isso foi criada duas funcoes de pre processamento
+       
+

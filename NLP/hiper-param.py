@@ -1,20 +1,21 @@
-import pandas as pd
-from pre_proccess import preProccess
-from sklearn.metrics import accuracy_score, classification_report, f1_score
+from modeling_embeddings import get_embeddings
+from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
-from representations.tfidf import cria_tfidf
 
-def hiperparam():
-    df = preProccess()
-    x, vetorizador = cria_tfidf(df)
-    y = df['label']
 
-    X_train, X_test, y_train, y_test = train_test_split(    
-    x, y, test_size=0.2, random_state=42, stratify=y        #preparamos os parametros de treino
+def hiperparam(tipo_representacao='tfidf'):
+    print(f"Otimizando para a representação: {tipo_representacao}")
+
+    X, modelo_repr, df_clean = get_embeddings(tipo_representacao)
+    y = df_clean['label']
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42, stratify=y
     )
+  
     grade_knn = {
         'n_neighbors': [3, 5, 7, 9],
         'metric': ['euclidean', 'cosine'],    #nas grades, podemos colocar os parametros que quisermos, com os valores que quisermos do dominio
